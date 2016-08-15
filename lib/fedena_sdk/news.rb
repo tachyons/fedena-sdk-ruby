@@ -3,7 +3,7 @@ module FedenaSdk
     attr_accessor :title, :content, :author
     def self.all(_count = nil)
       url = '/api/news'
-      hash = get_data_hash(url)
+      hash = get(url)
       hash['news_detail']['news'].map do |news_hash|
         new news_hash
       end

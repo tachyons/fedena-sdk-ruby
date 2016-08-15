@@ -4,7 +4,7 @@ module FedenaSdk
 
     def search(_query)
       url = '/api/employee_attendances'
-      hash = get_data_hash(url)
+      hash = get(url)
       hash['attendance_detail']['attendance'].map do |attendance_hash|
         new attendance_hash
       end
@@ -12,14 +12,14 @@ module FedenaSdk
 
     def employee_leave_types(_query)
       url = '/api/employee_leave_types'
-      get_data_hash(url)
+      get(url)
     end
 
     def save
       url = '/api/employee_attendances'
       params = attributes_hash
       options = { params: params }
-      hash = post_data_hash(url, options)
+      hash = post(url, options)
       new hash['attendance_detail']['attendance']
     end
 

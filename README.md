@@ -102,6 +102,21 @@ attendance.destroy
 ```ruby
 FedenaSdk::Attendance.destroy(admission_no,date)
 ```
+### Course
+
+* Get all  courses
+
+```ruby
+FedenaSdk::Course.all
+```
+
+### Batch
+
+* Search for batches
+
+```ruby
+FedenaSdk::Batch.search(query)
+```
 
 ## Development
 

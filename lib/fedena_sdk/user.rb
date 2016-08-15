@@ -3,7 +3,7 @@ module FedenaSdk
     attr_accessor :type, :username, :email, :full_name
     def self.find(username)
       url = "/api/users/#{username}"
-      hash = get_data_hash(url)
+      hash = get(url)
       new hash['user_detail']['user']
     end
   end

@@ -12,7 +12,7 @@ module FedenaSdk
                             date: date,
                             subject_code: subject_code,
                             class_timing_name: class_timing_name } }
-      hash = get_data_hash(url, options)
+      hash = get(url, options)
       new hash['attendance_detail']['attendance']
     end
 
@@ -20,7 +20,7 @@ module FedenaSdk
       url = '/api/attendances'
       params = { search: query }
       options = { params: params }
-      hash = get_data_hash(url, options)
+      hash = get(url, options)
       hash['attendance_detail']['attendance'].map do |attendance_hash|
         new attendance_hash
       end
@@ -30,7 +30,7 @@ module FedenaSdk
       url = '/api/attendances'
       params = attributes_hash
       options = { params: params }
-      hash = post_data_hash(url, options)
+      hash = post(url, options)
       new hash['attendance_detail']['attendance']
     end
 

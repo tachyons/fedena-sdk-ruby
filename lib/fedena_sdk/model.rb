@@ -25,11 +25,11 @@ module FedenaSdk
     end
 
     # FIXME: better name for this method
-    def self.get_data_hash(url, options = {})
+    def self.get(url, options = {})
       request(:get, url, options)
     end
 
-    def self.post_data_hash(url, options = {})
+    def self.post(url, options = {})
       request(:post, url, options)
     end
 
@@ -38,12 +38,12 @@ module FedenaSdk
       Hash.from_xml xml
     end
 
-    def post_data_hash(*args)
-      self.class.post_data_hash *args
+    def post(*args)
+      self.class.post *args
     end
 
-    def get_data_hash(*args)
-      self.class.get_data_hash *args
+    def get(*args)
+      self.class.get *args
     end
 
     def request

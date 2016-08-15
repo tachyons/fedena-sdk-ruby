@@ -4,7 +4,7 @@ module FedenaSdk
 
     def self.current_school
       url = '/api/schools'
-      hash = get_data_hash(url)
+      hash = get(url)
       new hash['school_detail']['school']
     end
   end
