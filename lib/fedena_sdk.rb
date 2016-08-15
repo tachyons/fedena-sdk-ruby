@@ -4,6 +4,7 @@ require 'fedena_sdk/model'
 require 'fedena_sdk/user'
 require 'fedena_sdk/news'
 require 'fedena_sdk/school'
+require 'fedena_sdk/attendance'
 require 'active_support/all'
 
 module FedenaSdk
