@@ -4,26 +4,26 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fedena_sdk/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "fedena_sdk"
+  spec.name          = 'fedena_sdk'
   spec.version       = FedenaSdk::VERSION
-  spec.authors       = ["Aboobacker MK"]
-  spec.email         = ["aboobackervyd@gmail.com"]
+  spec.authors       = ['Aboobacker MK']
+  spec.email         = ['aboobackervyd@gmail.com']
 
-  spec.summary       = %q{Fedena Sdk}
-  spec.description   = %q{Fedena sdk}
-  spec.homepage      = "https://github.com/tachyons/fedena-sdk-ruby"
-  spec.license       = "MIT"
-
+  spec.summary       = 'Fedena Sdk'
+  spec.description   = 'Fedena sdk'
+  spec.homepage      = 'https://github.com/tachyons/fedena-sdk-ruby'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
+  spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   spec.add_dependency 'oauth2'
   spec.add_dependency 'activesupport'
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'pry'
 end
