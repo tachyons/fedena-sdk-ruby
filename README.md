@@ -1,8 +1,6 @@
 # FedenaSdk
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fedena_sdk`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby wrapper for fedena api
 
 ## Installation
 
@@ -22,7 +20,88 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Initialize sdk
+```ruby
+client = FedenaSdk.authenticate(
+client_id: "",
+client_secret: "",
+uri: '',
+redirect_uri: "");
+```
+
+### Generate access token
+#### Using username and password
+```ruby
+FedenaSdk.access_token_from_password('username','password','redirect_uri');
+```
+
+##### Using authcode
+
+* Get authorise url
+```ruby
+client.auth_code.authorize_url(:redirect_uri => '')
+```
+* Get auth code from url
+
+* Generate token
+```ruby
+token = client.auth_code.get_token(auth_code,{:redirect_uri => ''},:header_format=>"Token token=\"%s\"")
+```
+
+### News
+
+* Get all News
+
+```ruby
+FedenaSdk::News.all
+```
+
+### User
+
+* Get user details
+
+```ruby
+FedenaSdk::User.find('username')
+```
+
+### School
+
+* Get current school details
+
+```ruby
+FedenaSdk::School.current_school
+```
+
+### Attendance
+* Get attendance status of a student
+
+```ruby
+FedenaSdk::Attendance.show(admission_no,date=>'10-12-2014')
+```
+* Search in attendance entries
+
+```ruby
+FedenaSdk::Attendance.search(query)
+```
+
+* Marking attendance
+
+```ruby
+attendance = FedenaSdk::Attendance.new(student_admission_no: "", forenoon: "", afternoon: "", date: "", batch_name: "", reason: "")
+attendance.save
+```
+
+* Deleting attendance object
+
+```ruby
+attendance.destroy
+```
+
+* Deleting attendance entry by admission_no and date
+
+```ruby
+FedenaSdk::Attendance.destroy(admission_no,date)
+```
 
 ## Development
 
@@ -32,10 +111,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fedena_sdk. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tachyons/fedena-sdk-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
