@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Aboobacker MK']
   spec.email         = ['aboobackervyd@gmail.com']
 
-  spec.summary       = 'Fedena Sdk'
-  spec.description   = 'Fedena sdk'
+  spec.summary       = 'Ruby wrapper for fedena api'
+  spec.description   = 'Fedena is a complete school management software and system with features like: timetable, attendance, parent-teacher-student communication and a lot more'
   spec.homepage      = 'https://github.com/tachyons/fedena-sdk-ruby'
   spec.license       = 'MIT'
 
