@@ -3,6 +3,7 @@ require "fedena_sdk/client"
 require "fedena_sdk/model"
 require "fedena_sdk/user"
 require "fedena_sdk/news"
+require "fedena_sdk/school"
 require "active_support/all"
 
 module FedenaSdk
