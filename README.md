@@ -118,6 +118,14 @@ FedenaSdk::Course.all
 FedenaSdk::Batch.search(query)
 ```
 
+### Student
+
+* Search for students
+
+```ruby
+FedenaSdk::Student.search(admission_no_like: "123")
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
