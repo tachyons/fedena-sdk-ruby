@@ -1,5 +1,4 @@
 module FedenaSdk
-
   class FedenaSdkError < StandardError
   end
 

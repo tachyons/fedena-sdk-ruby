@@ -18,5 +18,9 @@ module FedenaSdk
     def authorize_uri
       oauth2_client.auth_code.authorize_url(redirect_uri: @redirect_uri)
     end
+
+    def method_missing(method, *args)
+      oauth2_client.send(method, *args)
+    end
   end
 end

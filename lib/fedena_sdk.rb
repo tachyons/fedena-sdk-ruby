@@ -1,4 +1,5 @@
 require 'fedena_sdk/version'
+require 'fedena_sdk/errors'
 require 'fedena_sdk/client'
 require 'fedena_sdk/model'
 require 'fedena_sdk/user'
