@@ -1,5 +1,5 @@
 module FedenaSdk
-  class EmployeeAttendance
+  class EmployeeAttendance < Model
     attr_accessor :attendance_date, :employee_number, :leave_type, :reason, :half_day
 
     def search(_query)

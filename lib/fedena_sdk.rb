@@ -7,13 +7,31 @@ require 'active_support/all'
 module FedenaSdk
   extend ActiveSupport::Autoload
   autoload :User
-  autoload :News
   autoload :School
   autoload :Attendance
   autoload :EmployeeAttendance
   autoload :Course
   autoload :Batch
   autoload :Student
+  autoload :BiometricInformation
+  autoload :Employee
+  autoload :EmployeeCategory
+  autoload :EmployeeDepartment
+  autoload :EmployeeGrade
+  autoload :EmployeeLeaveType
+  autoload :EmployeePosition
+  autoload :Event
+  autoload :ExamGroup
+  autoload :FinanceTransaction
+  autoload :GradingLevel
+  autoload :News
+  autoload :PayRoll
+  autoload :PayrollGroup
+  autoload :Reminder
+  autoload :StudentCategory
+  autoload :Subject
+  autoload :Timetable
+
   class << self
     attr_accessor :client, :access_token
 
@@ -34,5 +52,5 @@ module FedenaSdk
     def current_user
       FedenaSdk::User.new(@access_token.params['user_info'])
     end
-   end
+  end
 end
