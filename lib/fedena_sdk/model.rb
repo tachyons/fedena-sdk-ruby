@@ -8,6 +8,26 @@ module FedenaSdk
 
     class << self
       attr_reader :attributes
+
+      def resource_url
+        '/api/' + name.split('::').last.underscore.pluralize
+      end
+
+      def all
+        hash = get resource_url
+        hash.first[1].first[1].map do |item|
+          new item
+        end
+      end
+
+      def search(query)
+        params = { search: query }
+        options = { params: params }
+        hash = get(resource_url, options)
+        hash.first[1].first[1].map do |item|
+          new item
+        end
+      end
     end
 
     def attributes
@@ -36,7 +56,9 @@ module FedenaSdk
     def self.request(verb, url, options = {})
       raise AccessTokenNotSet if FedenaSdk.access_token.nil?
       xml = FedenaSdk.access_token.request(verb, url, options).body
-      Hash.from_xml xml
+      hash = Hash.from_xml xml
+      raise InvalidRequest if hash.keys.include? 'errors'
+      hash
     end
 
     def post(*args)

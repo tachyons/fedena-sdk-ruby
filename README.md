@@ -23,10 +23,10 @@ Or install it yourself as:
 Initialize sdk
 ```ruby
 client = FedenaSdk.authenticate(
-client_id: "",
-client_secret: "",
-uri: '',
-redirect_uri: "");
+client_id: "<client_id",
+client_secret: "<client_secret>",
+uri: 'fedena_instance_uri>',
+redirect_uri: "redirect_uri_of_your_app");
 ```
 
 ### Generate access token
@@ -125,6 +125,72 @@ FedenaSdk::Batch.search(query)
 ```ruby
 FedenaSdk::Student.search(admission_no_like: "123")
 ```
+
+* Find student by admission_no
+
+```ruby
+FedenaSdk::Student.find(<admission_no>)
+```
+### BiometricInformation
+
+* Get biometric information
+
+```ruby
+FedenaSdk::BiometricInformation.find(<biometric_id>)
+```
+### EmployeeAttendance
+### Employee
+### EmployeeCategory
+### EmployeeDepartment
+* Get all employee departments
+
+```ruby
+FedenaSdk::EmployeeDepartment.all
+```
+### EmployeeGrade
+### EmployeeLeaveType
+
+* Get all leave types
+```ruby
+FedenaSdk::EmployeeLeaveType.all
+```
+
+### EmployeePosition
+
+* Get all employe postions
+```ruby
+ FedenaSdk::EmployeePosition.all
+```
+
+### Event
+### ExamGroup
+
+* Search for exam groups
+```ruby
+FedenaSdk::ExamGroup.search("<query>")
+```
+
+### ExamScore
+### FinanceTransaction
+* Search for finance transaction
+
+```ruby
+FedenaSdk::FinanceTransaction.search("<query>")
+```
+
+### GradingLevel
+### Payroll
+### PayrollGroup
+### Reminder
+### StudentCategory
+
+* Get all student categories
+```ruby
+FedenaSdk::StudentCategory.all
+```
+
+### Subject
+### Timetable
 
 ## Development
 

@@ -18,7 +18,7 @@ module FedenaSdk
     end
 
     def user
-      User.find(@admission_no)
+      User.find(admission_no)
     end
   end
 end

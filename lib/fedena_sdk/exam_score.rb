@@ -1,5 +1,5 @@
 module FedenaSdk
-  class ExamGroup < Model
+  class ExamScore < Model
     def save
       url = self.class.resource_url
       params = attributes_hash

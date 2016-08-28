@@ -22,10 +22,11 @@ module FedenaSdk
   autoload :EmployeePosition
   autoload :Event
   autoload :ExamGroup
+  autoload :ExamScore
   autoload :FinanceTransaction
   autoload :GradingLevel
   autoload :News
-  autoload :PayRoll
+  autoload :Payroll
   autoload :PayrollGroup
   autoload :Reminder
   autoload :StudentCategory
@@ -49,6 +50,10 @@ module FedenaSdk
     def access_token_from_password(username, password, redirect_uri)
       raise ClientNotSet if @oauth2_client.nil?
       @access_token ||= @oauth2_client.password.get_token(username, password, { redirect_uri: redirect_uri }, header_format: 'Token token="%s"')
+    end
+
+    def refresh_access_token!
+      @access_token = @access_token.refresh!
     end
 
     def current_user
