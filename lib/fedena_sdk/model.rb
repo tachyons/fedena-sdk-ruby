@@ -30,7 +30,6 @@ module FedenaSdk
           new item
         end
       end
-
     end
 
     def attributes
@@ -47,7 +46,6 @@ module FedenaSdk
       end
     end
 
-    # FIXME: better name for this method
     def self.get(url, options = {})
       request(:get, url, options)
     end
@@ -65,28 +63,28 @@ module FedenaSdk
     end
 
     def post(*args)
-      self.class.post *args
+      self.class.post(*args)
     end
 
     def get(*args)
-      self.class.get *args
+      self.class.get(*args)
     end
 
-    def request
-      self.class.request *args
+    def request(*args)
+      self.class.request(*args)
     end
 
-    def update_attributes attrs
+    def update_attributes(attrs)
       attrs.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
-      self.update!
-    end    
+      update!
+    end
 
     def update!
       params = attributes_hash
       options = { params: params }
-      put(resource_url, options)
+      request(:put, self.class.resource_url(id), options)
     end
 
     module UpdateMethods
@@ -97,6 +95,5 @@ module FedenaSdk
 
     module FindAllMethods
     end
-
   end
 end

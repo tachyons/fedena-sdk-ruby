@@ -1,5 +1,6 @@
 module FedenaSdk
   class ExamGroup < Model
+    attr_accessor :batch, :exam_date, :exam_category, :exam_type, :is_published, :name
     def save
       url = self.class.resource_url
       params = attributes_hash
@@ -9,7 +10,7 @@ module FedenaSdk
     end
 
     def self.create(*args)
-      attendance = ExamGroup.new *args
+      attendance = ExamGroup.new(*args)
       attendance.save
     end
   end

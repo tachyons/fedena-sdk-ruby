@@ -1,6 +1,7 @@
 module FedenaSdk
   class Attendance < Model
     attr_accessor :student_admission_no, :forenoon, :afternoon, :date, :batch_name, :reason, :subject_code, :class_timing_name
+    alias id student_admission_no
 
     def self.show(admission_no, options = {})
       date = options[:date]
@@ -14,16 +15,6 @@ module FedenaSdk
                             class_timing_name: class_timing_name } }
       hash = get(url, options)
       new hash['attendance_detail']['attendance']
-    end
-
-    def self.search(query)
-      url = '/api/attendances'
-      params = { search: query }
-      options = { params: params }
-      hash = get(url, options)
-      hash['attendance_detail']['attendance'].map do |attendance_hash|
-        new attendance_hash
-      end
     end
 
     def save

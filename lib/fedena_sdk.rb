@@ -36,8 +36,8 @@ module FedenaSdk
   class << self
     attr_accessor :client, :access_token
 
-    def authenticate(options = {})
-      @client = FedenaSdk::Client.new options
+    def authenticate(*args, &block)
+      @client = FedenaSdk::Client.new(*args, &block)
       @oauth2_client = @client.oauth2_client
       @client
     end

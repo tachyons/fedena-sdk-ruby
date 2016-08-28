@@ -22,11 +22,12 @@ Or install it yourself as:
 
 Initialize sdk
 ```ruby
-client = FedenaSdk.authenticate(
-client_id: "<client_id",
-client_secret: "<client_secret>",
-uri: 'fedena_instance_uri>',
-redirect_uri: "redirect_uri_of_your_app");
+client = FedenaSdk.authenticate do |config| 
+  config.client_id = "<client_id>" 
+  config.client_secret =  "<client_secret>"
+  config.uri = '<fedena_instance_uri>'
+  config.redirect_uri =  "<app_redirect_uri>"
+end 
 ```
 
 ### Generate access token
@@ -102,6 +103,10 @@ attendance.destroy
 ```ruby
 FedenaSdk::Attendance.destroy(admission_no,date)
 ```
+* Editing an attendance entry
+
+attendance.update_attributes(reason: "new reason")
+
 ### Course
 
 * Get all  courses
@@ -140,6 +145,12 @@ FedenaSdk::BiometricInformation.find(<biometric_id>)
 ```
 ### EmployeeAttendance
 ### Employee
+
+* Search for employees
+
+```ruby
+FedenaSdk::Employee.search("<query>")
+```
 ### EmployeeCategory
 ### EmployeeDepartment
 * Get all employee departments
