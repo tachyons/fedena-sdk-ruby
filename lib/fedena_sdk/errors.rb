@@ -7,4 +7,10 @@ module FedenaSdk
 
   class InvalidRequest < FedenaSdkError
   end
+
+  class AccessTokenNotSet < FedenaSdkError
+  end
+
+  class ClientNotSet < FedenaSdkError
+  end
 end

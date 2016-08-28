@@ -42,10 +42,12 @@ module FedenaSdk
     end
 
     def access_token_from_auth_code(auth_code, redirect_uri)
+      raise ClientNotSet if @oauth2_client.nil?
       @access_token ||= @oauth2_client.auth_code.get_token(auth_code, { redirect_uri: redirect_uri }, header_format: 'Token token="%s"')
     end
 
     def access_token_from_password(username, password, redirect_uri)
+      raise ClientNotSet if @oauth2_client.nil?
       @access_token ||= @oauth2_client.password.get_token(username, password, { redirect_uri: redirect_uri }, header_format: 'Token token="%s"')
     end
 

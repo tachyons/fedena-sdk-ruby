@@ -34,6 +34,7 @@ module FedenaSdk
     end
 
     def self.request(verb, url, options = {})
+      raise AccessTokenNotSet if FedenaSdk.access_token.nil?
       xml = FedenaSdk.access_token.request(verb, url, options).body
       Hash.from_xml xml
     end
