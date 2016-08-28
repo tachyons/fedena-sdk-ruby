@@ -9,8 +9,10 @@ module FedenaSdk
     class << self
       attr_reader :attributes
 
-      def resource_url
-        '/api/' + name.split('::').last.underscore.pluralize
+      def resource_url(id = nil)
+        url = '/api/' + name.split('::').last.underscore.pluralize
+        url += "/#{id}" unless id.nil?
+        url
       end
 
       def all
@@ -28,6 +30,7 @@ module FedenaSdk
           new item
         end
       end
+
     end
 
     def attributes
@@ -72,5 +75,28 @@ module FedenaSdk
     def request
       self.class.request *args
     end
+
+    def update_attributes attrs
+      attrs.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
+      self.update!
+    end    
+
+    def update!
+      params = attributes_hash
+      options = { params: params }
+      put(resource_url, options)
+    end
+
+    module UpdateMethods
+    end
+
+    module SearchMethods
+    end
+
+    module FindAllMethods
+    end
+
   end
 end
