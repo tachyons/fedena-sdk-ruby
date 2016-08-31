@@ -12,7 +12,11 @@ module FedenaSdk
     end
 
     def oauth2_client
-      @client ||= OAuth2::Client.new(@client_id, @client_secret, site: @uri)
+      @client ||= OAuth2::Client.new(@client_id, @client_secret, site: @uri) do |builder|
+        builder.request  :multipart
+        builder.request  :url_encoded
+        builder.adapter  :net_http
+      end
     end
 
     def authorize_uri

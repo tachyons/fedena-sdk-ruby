@@ -136,6 +136,13 @@ FedenaSdk::Student.search(admission_no_like: "123")
 ```ruby
 FedenaSdk::Student.find(<admission_no>)
 ```
+
+* Set profile photo for a student
+
+```ruby
+FedenaSdk::Student.new.upload_photo("<admission_no>",photo)
+```
+
 ### BiometricInformation
 
 * Get biometric information

@@ -20,5 +20,17 @@ module FedenaSdk
     def user
       User.find(admission_no)
     end
+
+    def upload_photo(admission_no, file)
+      url = self.class.resource_url(admission_no) + '/upload_photo'
+      begin
+        img = Faraday::UploadIO.new(file.path, 'image/png')
+        data = { photo: img }
+        response = FedenaSdk.access_token.post(url, body: data)
+        print response.body, response.status
+      rescue OAuth2::Error => e
+        puts e
+      end
+    end
   end
 end

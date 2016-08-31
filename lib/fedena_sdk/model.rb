@@ -18,7 +18,7 @@ module FedenaSdk
       def all
         hash = get resource_url
         items = hash.first[1].first[1]
-        items = [items] unless items.kind_of? Array
+        items = [items] unless items.is_a? Array
         items.map do |item|
           new item
         end
@@ -29,7 +29,7 @@ module FedenaSdk
         options = { params: params }
         hash = get(resource_url, options)
         items = hash.first[1].first[1]
-        items = [items] unless items.kind_of? Array
+        items = [items] unless items.is_a? Array
         items.map do |item|
           new item
         end
