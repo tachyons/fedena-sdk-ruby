@@ -1,5 +1,7 @@
 module FedenaSdk
   class ExamScore < Model
+    attr_accessor :student, :exam_group, :batch, :subject, :marks, :grading_level, :remarks
+
     def save
       url = self.class.resource_url
       params = attributes_hash
@@ -9,7 +11,7 @@ module FedenaSdk
     end
 
     def self.create(*args)
-      attendance = ExamGroup.new *args
+      attendance = ExamGroup.new(*args)
       attendance.save
     end
   end
