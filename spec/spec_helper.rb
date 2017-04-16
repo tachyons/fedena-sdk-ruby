@@ -3,6 +3,8 @@ require 'fedena_sdk'
 require 'rspec'
 require 'webmock/rspec'
 require 'vcr'
+require 'dotenv'
+Dotenv.load
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/cassette_library'

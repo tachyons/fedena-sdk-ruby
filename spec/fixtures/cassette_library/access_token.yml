@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://depaul.fedena.org/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=67197d06616f6ccb82c83da4c290cdb6ae202bc9498d7e13f102cd3ee7cab72a&client_secret=c41e561c960cff08eb28f699d42ad180a8345f679ff3cf031e459a436127e24f&grant_type=password&password=demo%40123&redirect_uri=http%3A%2F%2Fdepaul.fedena.org%2F&username=admin
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '289'
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      Access-Control-Request-Method:
+      - POST,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Runtime:
+      - '75'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Set-Cookie:
+      - _fedena_session_=c2ad1041febd343e5e874cc1419235c6; path=/; HttpOnly
+      Etag:
+      - '"2628e4a8890dbae74c8f1062bfb0cc72"'
+      Server:
+      - nginx/1.6.3 + Phusion Passenger 3.0.19
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"fc5372259070ed3ac4bd91e27b3c6163bf3592076474a3ddd22c982b999af5a1","user_info":{"type":"Admin","username":"admin","email":"ahmed@foradian.com","full_name":"Admin
+        User"},"expires_in":7775999,"refresh_token":"fb66ee66e3a01f7f7deca86465d60a959c3cecc8747b8b7026b0ffe1464953fc"}'
+    http_version: 
+  recorded_at: Sun, 16 Apr 2017 07:27:19 GMT
+recorded_with: VCR 3.0.3

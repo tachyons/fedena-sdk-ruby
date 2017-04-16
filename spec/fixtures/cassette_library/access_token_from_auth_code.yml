@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://depaul.fedena.org/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=67197d06616f6ccb82c83da4c290cdb6ae202bc9498d7e13f102cd3ee7cab72a&client_secret=c41e561c960cff08eb28f699d42ad180a8345f679ff3cf031e459a436127e24f&code=test&grant_type=authorization_code&redirect_uri=http%3A%2F%2Fdepaul.fedena.org%2F
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '81'
+      Connection:
+      - keep-alive
+      Status:
+      - '400'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Runtime:
+      - '29'
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - _fedena_session_=278a0cbd628cf9bce13ff61a670cb7da; path=/; HttpOnly
+      Server:
+      - nginx/1.6.3 + Phusion Passenger 3.0.19
+    body:
+      encoding: UTF-8
+      string: '{"error_description":"Authorization expired or invalid!","error":"invalid-grant"}'
+    http_version: 
+  recorded_at: Sun, 16 Apr 2017 07:27:19 GMT
+recorded_with: VCR 3.0.3
